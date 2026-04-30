@@ -12,7 +12,7 @@ if (typeof window !== "undefined") {
 }
 
 const teamImages = [
-  "/image/6.png",
+  "/image/6.jpeg",
   "/image/1.jpeg",
   "/image/2.jpeg",
   "/image/3.jpeg",
@@ -34,7 +34,7 @@ export default function Team() {
     const htmlElement = document.documentElement;
     const currentLang = htmlElement.lang as Locale;
     if (currentLang === "ar" || currentLang === "en") setLocale(currentLang);
-    
+
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         if (mutation.attributeName === "lang") {
@@ -49,7 +49,7 @@ export default function Team() {
 
   useGSAP(() => {
     if (!mounted || !trackRef.current) return;
-    
+
     // Animate exactly 50% of the double-width track, seamlessly looping back
     tweenRef.current = gsap.to(trackRef.current, {
       xPercent: -50,
@@ -74,8 +74,8 @@ export default function Team() {
   return (
     <section id="team" className={styles.section}>
       <h2 className={styles.title}>{t.navbar.team}</h2>
-      
-      <div 
+
+      <div
         className={styles.sliderContainer}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -84,10 +84,10 @@ export default function Team() {
         <div className={styles.sliderTrack} ref={trackRef}>
           {infiniteImages.map((src, idx) => (
             <div key={idx} className={styles.imageCard}>
-              <Image 
-                src={src} 
-                alt={`Team member ${idx + 1}`} 
-                fill 
+              <Image
+                src={src}
+                alt={`Team member ${idx + 1}`}
+                fill
                 style={{ objectFit: "cover" }}
                 sizes="(max-width: 768px) 240px, 280px"
               />
