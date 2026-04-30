@@ -1,26 +1,43 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+html {
+  scroll-behavior: smooth;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4af37;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #fde047;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0a0a0a; /* الفخامة الإجباري */
+  color: #ffffff;
+}
+
+/* عشان نضمن إن الدارك مود يفضل شغال حتى لو الأداة هنجت */
+.dark body {
+  background-color: #0a0a0a;
+  color: #ffffff;
+}
+
+.light body {
+  background-color: #f4f4f5;
+  color: #000000;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 80px; /* Space for Mobile Bottom Nav */
+  }
 }

@@ -1,0 +1,67 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0a0a0a;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+:global(.light) .overlay {
+  background-color: #f4f4f5;
+}
+
+.overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.counterWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.counterText {
+  font-size: 5.5rem;
+  font-weight: 800;
+  color: #d4af37;
+  letter-spacing: 0.1em;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.4), 0 0 40px rgba(212, 175, 55, 0.2);
+}
+
+.subText {
+  font-size: 1.1rem;
+  color: #9ca3af;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+:global(.light) .subText {
+  color: #6b7280;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+@media (max-width: 768px) {
+  .counterText {
+    font-size: 3.5rem;
+  }
+  .subText {
+    font-size: 0.95rem;
+  }
+}

@@ -1,0 +1,55 @@
+.footer {
+  width: 100%;
+  padding: 2rem 0;
+  margin-top: 3rem;
+  text-align: center;
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  background: transparent;
+  position: relative;
+  z-index: 10;
+}
+
+.text {
+  color: rgba(20, 20, 20, 0.7);
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+  cursor: default;
+}
+
+:global(.dark) .text {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.text:hover {
+  color: #d4af37;
+}
+
+.developerCredit {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: #9ca3af;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  text-align: center;
+  direction: rtl;
+}
+
+.separator {
+  color: #6b7280;
+}
+
+.contactLink {
+  color: #d4af37;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.contactLink:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}

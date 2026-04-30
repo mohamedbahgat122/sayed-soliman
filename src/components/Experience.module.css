@@ -1,0 +1,158 @@
+.experienceSection {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8rem 5%;
+  min-height: 80vh;
+  overflow: hidden;
+}
+
+/* Create the large, soft gold background glow */
+.experienceSection::before {
+  content: "";
+  position: absolute;
+  top: 50%; /* Center vertically behind the card stack */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Precise centering offset */
+  width: 90vw; /* Adjust width to cover most of the screen */
+  height: 90vw; /* Maintain a large circular/oval shape */
+  max-width: 1200px; /* Optional cap for very wide screens */
+  max-height: 1200px;
+
+  /* Premium Radial Gradient (Gold fading to transparent) */
+  background: radial-gradient(
+    circle, 
+    rgba(212, 175, 55, 0.2) 0%,   /* Gold center (slightly translucent) */
+    rgba(212, 175, 55, 0.05) 30%,  /* Softer gold transition */
+    rgba(10, 10, 10, 0) 70%        /* Fades completely into the black background */
+  );
+
+  /* Add significant blurring for softness */
+  filter: blur(120px);
+  
+  /* Put it behind all content but above the base body background */
+  z-index: -1; 
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 5rem;
+  text-align: center;
+  color: #d4af37;
+}
+
+.stackContainer {
+  position: relative;
+  width: 100%;
+  max-width: 550px;
+  height: 380px; /* Base height for the card */
+  perspective: 1000px;
+}
+
+.card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 15, 15, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 1.5rem;
+  padding: 3rem 2.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
+  cursor: pointer;
+  transform-origin: top center;
+  will-change: transform, opacity;
+  text-align: start; /* Supports RTL perfectly */
+}
+
+/* Gold Accent line at the top of the card */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, #d4af37, #fde047);
+}
+
+.jobTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #ffffff; /* Explicitly white to contrast with dark card */
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.025em;
+}
+
+.company {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #d4af37; /* Premium Gold */
+  margin-bottom: 1rem;
+}
+
+.cardDescription {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.date {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #d1d5db;
+  margin-top: auto;
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+}
+
+.arrowWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.arrowSvg {
+  width: 80px;
+  height: 100px;
+}
+
+@media (max-width: 768px) {
+  .experienceSection {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+    min-height: auto !important;
+  }
+  
+  .arrowWrapper {
+    margin: 1rem auto !important;
+  }
+  
+  .arrowSvg {
+    height: 60px !important;
+    width: auto !important;
+  }
+
+  .stackContainer {
+    max-width: 90vw;
+    height: 400px;
+  }
+  
+  .jobTitle {
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,101 @@
+.section {
+  padding: 4rem 2rem 8rem;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #d4af37;
+  margin-bottom: 3rem;
+}
+
+.iconContainer {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 2rem auto 0;
+}
+
+.contactCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: rgba(15, 15, 15, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 12px;
+  color: var(--foreground);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  width: 150px;
+}
+
+:global(.light) .contactCard {
+  background: #ffffff;
+  color: #111827;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+:global(.dark) .contactCard {
+  background: rgba(26, 26, 26, 0.6);
+  color: #ffffff;
+}
+
+.contactCard:hover {
+  transform: translateY(-5px);
+  border-color: #d4af37;
+  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.15);
+  color: #d4af37;
+}
+
+.icon {
+  color: #d4af37;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+}
+
+.label {
+  font-weight: 500;
+  font-size: 1rem;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+    min-height: auto !important;
+  }
+
+  .iconContainer {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1rem !important; /* Adds a nice space between the stacked cards */
+  }
+
+  .contactCard {
+    width: 80% !important; /* Makes the card wider to look good as a single column */
+    max-width: 300px !important; /* Prevents it from getting too huge on larger phones */
+    flex-direction: row !important; /* Put icon and text side-by-side for a list look */
+    justify-content: center !important;
+    gap: 1.5rem !important;
+  }
+  
+  .icon {
+    margin-bottom: 0 !important;
+  }
+}

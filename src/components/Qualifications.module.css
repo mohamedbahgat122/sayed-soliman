@@ -1,0 +1,198 @@
+.section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8rem 5%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #d4af37;
+  z-index: 10;
+}
+
+.timelineContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 3rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding: 2rem 0;
+}
+
+.trunkLine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  background: linear-gradient(to bottom, #d4af37, rgba(212, 175, 55, 0));
+  transform-origin: top center;
+  z-index: 1;
+}
+
+.timelineRow {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  z-index: 2;
+}
+
+.rowLeft {
+  justify-content: flex-start;
+}
+
+.rowRight {
+  justify-content: flex-end;
+}
+
+/* Branch lines connecting trunk to cards */
+.branchLine {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 2px;
+  background: #d4af37;
+  z-index: 1;
+}
+
+.rowLeft .branchLine {
+  left: 45%;
+  width: 5%;
+}
+
+.rowRight .branchLine {
+  left: 50%;
+  width: 5%;
+}
+
+.nodeDot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background: #d4af37;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
+  z-index: 3;
+}
+
+.cardWrapper {
+  width: 45%;
+}
+
+.card {
+  background: rgba(15, 15, 15, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform, opacity;
+}
+
+:global(.light) .card {
+  background: #ffffff;
+  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.card:hover {
+  transform: scale(1.05) !important;
+  border-color: #d4af37;
+  box-shadow: 0 15px 35px -10px rgba(212, 175, 55, 0.3);
+}
+
+:global(.light) .card:hover {
+  box-shadow: 0 15px 35px -10px rgba(212, 175, 55, 0.4);
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  text-align: start;
+}
+
+:global(.light) .cardTitle {
+  color: #111827;
+}
+
+.cardDesc {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  text-align: start;
+}
+
+:global(.light) .cardDesc {
+  color: #374151;
+}
+
+.arrowWrapper {
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto 4rem;
+}
+
+.arrowSvg {
+  width: 150px;
+  height: 250px;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+    min-height: auto !important;
+  }
+
+  .arrowWrapper {
+    margin: 1rem auto !important;
+  }
+
+  .arrowSvg {
+    height: 100px !important;
+    width: auto !important;
+  }
+
+  /* Keep alternating logic but reduce padding/margins */
+  .cardWrapper {
+    padding: 0 10px !important; /* Reduce gap between card and center line */
+    width: 50% !important; /* Ensure it stays half-width */
+  }
+  
+  .card {
+    padding: 0.75rem !important; /* Smaller padding inside the card */
+  }
+
+  .cardTitle {
+    font-size: 14px !important; /* Smaller title */
+  }
+
+  .cardDesc {
+    font-size: 11px !important; /* Smaller text */
+  }
+
+  .nodeDot {
+    width: 12px !important;
+    height: 12px !important;
+  }
+}
